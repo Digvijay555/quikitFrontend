@@ -56,9 +56,14 @@ const Home = () => {
             })
     }, [])
 
-    const newData = data.map((e, idx) => {
+    // const newData = data.forEach((e, idx) => {
+    //     let obj = e
+    //     obj.price = Object?.values(rate)[idx];
+    //     return obj
+    // })
+    const newData = data?.map((e, idx) => {
         let obj = e
-        obj.price = Object.values(rate)[idx];
+        obj.price = Object?.values(rate)[idx];
         return obj
     })
 
@@ -79,7 +84,7 @@ const Home = () => {
 
     // function for get all data which store in database
     const getcrypto = async () => {
-        const response = await fetch('https://quikiee.herokuapp.com/api/crypto/fetchalldata', {
+        const response = await fetch('http://localhost:5000/api/crypto/fetchalldata', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -94,7 +99,7 @@ const Home = () => {
     // main function for save data in database
     const savecrypto = async (name, symbol, currentprice) => {
 
-        const response = await fetch('https://quikiee.herokuapp.com/api/crypto/savecrypto', {
+        const response = await fetch('http://localhost:5000/api/crypto/savecrypto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -158,8 +163,8 @@ const Home = () => {
 
                                 return (<tr>
                                     <td>{e.name}</td>
-                                    <td><div style={{backgroundColor:"#E6E6F2",width:"fit-content",padding: "0px 9px",borderRadius:" 12px",color:"#5858FD"}}>
-                                        <ul style={{paddingLeft: "17px",margin: "0px"}}>
+                                    <td><div style={{ backgroundColor: "#E6E6F2", width: "fit-content", padding: "0px 9px", borderRadius: " 12px", color: "#5858FD" }}>
+                                        <ul style={{ paddingLeft: "17px", margin: "0px" }}>
                                             <li>
                                                 {e.symbol}
                                             </li>
