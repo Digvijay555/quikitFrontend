@@ -55,7 +55,8 @@ const View = () => {
                 'Content-Type': 'application/json',
             },
         });
-        // const json = response.json()
+        const json = response.json()
+        console.log(json);
         getcrypto();
     }
 
