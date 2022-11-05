@@ -49,14 +49,14 @@ const View = () => {
 
         //API
 
-        const response = await fetch(`http://localhost:5000/api/crypto/deletecrypto/${id}`, {
+         await fetch(`http://localhost:5000/api/crypto/deletecrypto/${id}`, {
             method: "Delete",
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-        const json = response.json()
-        console.log(json);
+        // const json = response.json()
+        // console.log(json);
         getcrypto();
     }
 
