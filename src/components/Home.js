@@ -79,7 +79,7 @@ const Home = () => {
 
     // function for get all data which store in database
     const getcrypto = async () => {
-        const response = await fetch('http://localhost:5000/api/crypto/fetchalldata', {
+        const response = await fetch('https://quikiee.herokuapp.com/api/crypto/fetchalldata', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const Home = () => {
     // main function for save data in database
     const savecrypto = async (name, symbol, currentprice) => {
 
-        const response = await fetch('http://localhost:5000/api/crypto/savecrypto', {
+        const response = await fetch('https://quikiee.herokuapp.com/api/crypto/savecrypto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
