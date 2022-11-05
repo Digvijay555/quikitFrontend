@@ -23,7 +23,7 @@ const Home = () => {
     // const [currentPage, setcurrentPage] = useState(1);
 
     useEffect(() => {
-        axios.get(`http://api.coinlayer.com/api/list?access_key=37616302b72512c0cb904b932a9c07f5`)
+        axios.get(`http://api.coinlayer.com/api/list?access_key=006ea93269b9688e99f47a84226df6e6`)
             .then(res => {
                 // console.log(typeof(res.data))
                 const record = res.data.crypto;
@@ -45,27 +45,27 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://api.coinlayer.com/api/live?access_key=37616302b72512c0cb904b932a9c07f5`)
+        axios.get(`http://api.coinlayer.com/api/live?access_key=006ea93269b9688e99f47a84226df6e6`)
             .then(res => {
                 setrate(res.data.rates);
                 // setpaginatedrate(_(res.data.rates).slice(0).take(pageSize).value())
-                console.log(res.data.rates);
+                // console.log(res.data.rates);
                 // addPrice();
             }).catch(err => {
                 console.log(err)
             })
     }, [])
 
-    // const newData = data.forEach((e, idx) => {
-    //     let obj = e
-    //     obj.price = Object?.values(rate)[idx];
-    //     return obj
-    // })
-    const newData = data?.map((e, idx) => {
+    const newData = data?.forEach((e, idx) => {
         let obj = e
         obj.price = Object?.values(rate)[idx];
         return obj
     })
+    // const newData = data?.map((e, idx) => {
+    //     let obj = e
+    //     obj.price = Object?.values(rate)[idx];
+    //     return obj
+    // })
 
     useEffect(() => {
 
@@ -161,7 +161,7 @@ const Home = () => {
                         {
                             paginatedPost.map((e, idx) => {
 
-                                return (<tr>
+                                return (<tr key={idx}>
                                     <td>{e.name}</td>
                                     <td><div style={{ backgroundColor: "#E6E6F2", width: "fit-content", padding: "0px 9px", borderRadius: " 12px", color: "#5858FD" }}>
                                         <ul style={{ paddingLeft: "17px", margin: "0px" }}>

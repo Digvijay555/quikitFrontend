@@ -79,7 +79,7 @@ const View = () => {
                         {
                             paginatedPost.map((e, idx) => {
 
-                                return (<tr>
+                                return (<tr key={idx}>
                                     <td>{e.name}</td>
                                     <td><div style={{ backgroundColor: "#E6E6F2", width: "fit-content", padding: "0px 9px", borderRadius: " 12px", color: "#5858FD" }}>
                                         <ul style={{ paddingLeft: "17px", margin: "0px" }}>
