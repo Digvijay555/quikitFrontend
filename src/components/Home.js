@@ -19,8 +19,8 @@ const Home = () => {
 
     const [saveCrypto, setSaveCrypto] = useState([])
     const [paginatedPost, setPaginatedPost] = useState([]);
-    const [paginatedRate, setpaginatedrate] = useState([]);
-    const [currentPage, setcurrentPage] = useState(1);
+    // const [paginatedRate, setpaginatedrate] = useState([]);
+    // const [currentPage, setcurrentPage] = useState(1);
 
     useEffect(() => {
         axios.get(`http://api.coinlayer.com/api/list?access_key=37616302b72512c0cb904b932a9c07f5`)
