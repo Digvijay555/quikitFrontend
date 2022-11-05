@@ -53,10 +53,9 @@ const View = () => {
             method: "Delete",
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
             },
         });
-        const json = response.json()
+        // const json = response.json()
         getcrypto();
     }
 
