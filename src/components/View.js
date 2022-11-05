@@ -7,18 +7,19 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import _ from 'lodash';
 import Button from '@mui/material/Button';
-
 const pageSize = 5;
 const View = () => {
     const navigate = useNavigate()
     const [saveCrypto, setSaveCrypto] = useState([])
     const [paginatedPost, setPaginatedPost] = useState([]);
 
-    useEffect(()=>{
+
+
+    useEffect(() => {
         getcrypto();
-    },[])
-     // function for get all data which store in database
-     const getcrypto = async () => {
+    }, [])
+    // function for get all data which store in database
+    const getcrypto = async () => {
         const response = await fetch('http://localhost:5000/api/crypto/fetchalldata', {
             method: 'GET',
             headers: {
@@ -36,20 +37,20 @@ const View = () => {
     var pagess = _.range(1, pageCount + 1)
     pagess = pagess[pagess.length - 1]
 
-    const pagination = (event) =>{
+    const pagination = (event) => {
         let pageNumber = parseInt(event.target.textContent)
-        
-        const startIndex = (pageNumber-1)*pageSize;
+
+        const startIndex = (pageNumber - 1) * pageSize;
         const paginatedPost = _(saveCrypto).slice(startIndex).take(pageSize).value();
         setPaginatedPost(paginatedPost);
     }
 
-    const deleteCrypto = async(id) => {
+    const deleteCrypto = async (id) => {
 
         //API
 
-        const response = await fetch(`http://localhost:5000/api/crypto/deletecrypto/${id}`,{
-            method:"Delete",
+        const response = await fetch(`http://localhost:5000/api/crypto/deletecrypto/${id}`, {
+            method: "Delete",
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem('token')
@@ -58,12 +59,12 @@ const View = () => {
         const json = response.json()
         getcrypto();
     }
-    
+
     return (
         <>
             <Header />
             <Card />
-             <div className='tableparent'>
+            <div className='tableparent'>
                 <table>
                     <thead>
                         <tr>
@@ -80,15 +81,15 @@ const View = () => {
 
                                 return (<tr>
                                     <td>{e.name}</td>
-                                    <td><div style={{backgroundColor:"#E6E6F2",width:"fit-content",padding: "0px 9px",borderRadius:" 12px",color:"#5858FD"}}>
-                                        <ul style={{paddingLeft: "17px",margin: "0px"}}>
+                                    <td><div style={{ backgroundColor: "#E6E6F2", width: "fit-content", padding: "0px 9px", borderRadius: " 12px", color: "#5858FD" }}>
+                                        <ul style={{ paddingLeft: "17px", margin: "0px" }}>
                                             <li>
                                                 {e.symbol}
                                             </li>
 
                                         </ul>
                                     </div></td>
-                                    <td><Button variant="contained" onClick={()=>{deleteCrypto(e._id)}}>Delete</Button></td>
+                                    <td><Button variant="contained" onClick={() => { deleteCrypto(e._id) }}>Delete</Button></td>
                                     <td>{e.currentprice}</td>
 
                                 </tr>)
@@ -103,12 +104,13 @@ const View = () => {
                             <Pagination count={pagess} color="primary" onClick={pagination} />
 
                         </Stack>
+
                     </div>
                 </div>
                 <div>
                     <Button variant="contained" onClick={() => { navigate('/') }}>Back</Button>
                 </div>
-            </div> 
+            </div>
         </>
     )
 }

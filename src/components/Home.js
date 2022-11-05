@@ -23,7 +23,7 @@ const Home = () => {
     const [currentPage, setcurrentPage] = useState(1);
 
     useEffect(() => {
-        axios.get(`http://api.coinlayer.com/api/list?access_key=337a7425ec9a9b38287bbd9542359dd6`)
+        axios.get(`http://api.coinlayer.com/api/list?access_key=37616302b72512c0cb904b932a9c07f5`)
             .then(res => {
                 // console.log(typeof(res.data))
                 const record = res.data.crypto;
@@ -45,7 +45,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://api.coinlayer.com/api/live?access_key=337a7425ec9a9b38287bbd9542359dd6`)
+        axios.get(`http://api.coinlayer.com/api/live?access_key=37616302b72512c0cb904b932a9c07f5`)
             .then(res => {
                 setrate(res.data.rates);
                 // setpaginatedrate(_(res.data.rates).slice(0).take(pageSize).value())
