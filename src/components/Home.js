@@ -15,7 +15,7 @@ const Home = () => {
     const [data, setdata] = useState([]);
     const [rate, setrate] = useState();
     const [searchData, setSearchData] = useState(" ");
-    const [data1, setdata1] = useState([]);
+    // const [data1, setdata1] = useState([]);
 
     const [saveCrypto, setSaveCrypto] = useState([])
     const [paginatedPost, setPaginatedPost] = useState([]);
@@ -29,7 +29,7 @@ const Home = () => {
                 const record = res.data.crypto;
                 let newData = [...data, Object.values(record)]
                 setdata(newData[0]);
-                setdata1(newData[0]);
+                // setdata1(newData[0]);
                 setPaginatedPost(_(newData[0]).slice(0).take(pageSize).value())
                 // console.log(record);
                 // const keys = Object.values(record);
